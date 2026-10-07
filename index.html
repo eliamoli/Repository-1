@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Bridgerow connects people, ideas and the work that moves them forward.">
+<title>Bridgerow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;800&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a viaduct of arches anchors the hero; content runs in one 1120px span with a left-aligned measure. */
+:root {
+  --stone: #EDEFF0;      /* page ground: cool limestone */
+  --stone-2: #E1E5E7;    /* raised panel */
+  --ink: #142228;        /* text, structure lines */
+  --ink-soft: #4A5A61;   /* secondary text */
+  --rule: #C6CDD1;       /* hairlines */
+  --cobalt: #2945D6;     /* single accent: cable blue */
+  --on-cobalt: #FFFFFF;
+  --f-display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --f-body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --span: 1120px;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --stone: #0F1518; --stone-2: #172024; --ink: #E4EAEC; --ink-soft: #9AA8AE;
+    --rule: #2A363B; --cobalt: #8C9DFF; --on-cobalt: #0F1518; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --stone: #0F1518; --stone-2: #172024; --ink: #E4EAEC; --ink-soft: #9AA8AE;
+  --rule: #2A363B; --cobalt: #8C9DFF; --on-cobalt: #0F1518; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+body {
+  margin: 0; background: var(--stone); color: var(--ink);
+  font: 400 1.0625rem/1.6 var(--f-body);
+  padding-inline: clamp(16px, 4vw, 48px);
+}
+.wrap { max-width: var(--span); margin-inline: auto; }
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--cobalt); outline-offset: 3px; border-radius: 2px; }
+
+/* header */
+.top {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  background: var(--stone); border-bottom: 1px solid var(--rule);
+  margin-inline: calc(-1 * clamp(16px, 4vw, 48px)); padding-inline: clamp(16px, 4vw, 48px);
+}
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font: 800 1.5rem/1 var(--f-display); letter-spacing: .02em; text-transform: uppercase; }
+.brand svg { width: 34px; height: 18px; flex: none; }
+.nav { display: flex; gap: clamp(14px, 3vw, 32px); font: 500 .8rem/1 var(--f-mono); text-transform: uppercase; letter-spacing: .08em; }
+.nav a { text-decoration: none; color: var(--ink-soft); }
+.nav a:hover { color: var(--cobalt); }
+@media (max-width: 520px) { .nav a:not(:last-child) { display: none; } }
+
+/* hero */
+.hero { padding-block: clamp(48px, 9vw, 112px) 0; }
+.eyebrow { font: 500 .78rem/1 var(--f-mono); text-transform: uppercase; letter-spacing: .12em; color: var(--cobalt); margin: 0 0 20px; }
+h1 {
+  font: 800 clamp(3.2rem, 11vw, 8.5rem)/.88 var(--f-display);
+  text-transform: uppercase; letter-spacing: -.005em; margin: 0; text-wrap: balance;
+}
+h1 em { font-style: normal; color: var(--cobalt); }
+.lede { max-width: 34em; font-size: clamp(1.1rem, 1.8vw, 1.3rem); color: var(--ink-soft); margin: 28px 0 0; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px;
+  font: 600 1rem/1 var(--f-body); text-decoration: none; border: 1.5px solid var(--ink); background: transparent; color: var(--ink); cursor: pointer;
+  transition: background .2s, color .2s, border-color .2s;
+}
+.btn.primary { background: var(--cobalt); border-color: var(--cobalt); color: var(--on-cobalt); }
+.btn:hover { background: var(--ink); border-color: var(--ink); color: var(--stone); }
+
+.viaduct { display: block; width: 100%; height: auto; margin-top: clamp(40px, 7vw, 80px); color: var(--ink); }
+.viaduct .deck { stroke: var(--cobalt); }
+
+/* sections */
+section.block { padding-block: clamp(64px, 9vw, 112px); border-top: 1px solid var(--rule); }
+.split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: clamp(24px, 5vw, 72px); }
+@media (max-width: 760px) { .split { grid-template-columns: minmax(0, 1fr); } }
+.label { font: 500 .78rem/1.4 var(--f-mono); text-transform: uppercase; letter-spacing: .12em; color: var(--ink-soft); margin: 0; }
+h2 { font: 700 clamp(2.2rem, 5vw, 3.6rem)/.95 var(--f-display); text-transform: uppercase; margin: 0 0 24px; text-wrap: balance; }
+.prose p { max-width: 38em; margin: 0 0 1em; }
+.prose p:last-child { margin-bottom: 0; }
+
+.spans { list-style: none; margin: 40px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1.5px solid var(--ink); }
+@media (max-width: 860px) { .spans { grid-template-columns: minmax(0, 1fr); } }
+.spans li { padding: 28px 28px 32px 0; display: grid; gap: 12px; align-content: start; }
+.spans li + li { border-left: 1px solid var(--rule); padding-left: 28px; }
+@media (max-width: 860px) { .spans li + li { border-left: 0; padding-left: 0; border-top: 1px solid var(--rule); } .spans li { padding-right: 0; } }
+.spans svg { width: 44px; height: 24px; color: var(--cobalt); }
+.spans h3 { font: 700 1.6rem/1 var(--f-display); text-transform: uppercase; margin: 0; }
+.spans p { margin: 0; color: var(--ink-soft); }
+
+.contact { background: var(--stone-2); margin-inline: calc(-1 * clamp(16px, 4vw, 48px)); padding-inline: clamp(16px, 4vw, 48px); border-top: 0; }
+.mail { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: 8px; }
+.mail code { font: 500 clamp(1.1rem, 3vw, 1.6rem)/1.2 var(--f-mono); color: var(--ink); user-select: all; overflow-wrap: anywhere; }
+.copied { font: 500 .8rem/1 var(--f-mono); color: var(--cobalt); min-height: 1em; }
+
+footer { padding-block: 32px; font: 400 .8rem/1.5 var(--f-mono); color: var(--ink-soft); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Bridgerow home">
+      <svg viewBox="0 0 34 18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M1 3h32M3 17V9a4 4 0 0 1 8 0v8M13 17V9a4 4 0 0 1 8 0v8M23 17V9a4 4 0 0 1 8 0v8"/>
+      </svg>
+      Bridgerow
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#work">What we do</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero wrap">
+    <p class="eyebrow">Bridgerow</p>
+    <h1>Built to <em>connect</em> what comes next.</h1>
+    <p class="lede">Bridgerow brings people, ideas and the right expertise together, then does the steady work of turning them into something that lasts.</p>
+    <div class="actions">
+      <a class="btn primary" href="#contact">Start a conversation</a>
+      <a class="btn" href="#work">See what we do</a>
+    </div>
+    <svg class="viaduct" viewBox="0 0 1120 150" fill="none" stroke="currentColor" aria-hidden="true">
+      <line class="deck" x1="0" y1="18" x2="1120" y2="18" stroke-width="4"/>
+      <line x1="0" y1="34" x2="1120" y2="34" stroke-width="1.5"/>
+      <g stroke-width="1.5">
+        <path d="M0 150V100a60 60 0 0 1 120 0v50"/>
+        <path d="M140 150V100a60 60 0 0 1 120 0v50"/>
+        <path d="M280 150V100a60 60 0 0 1 120 0v50"/>
+        <path d="M420 150V100a60 60 0 0 1 120 0v50"/>
+        <path d="M560 150V100a60 60 0 0 1 120 0v50"/>
+        <path d="M700 150V100a60 60 0 0 1 120 0v50"/>
+        <path d="M840 150V100a60 60 0 0 1 120 0v50"/>
+        <path d="M980 150V100a60 60 0 0 1 120 0v50"/>
+        <path d="M120 34v116M140 34v116M260 34v116M280 34v116M400 34v116M420 34v116M540 34v116M560 34v116M680 34v116M700 34v116M820 34v116M840 34v116M960 34v116M980 34v116M1100 34v116"/>
+      </g>
+    </svg>
+  </div>
+
+  <section class="block wrap" id="about">
+    <div class="split">
+      <p class="label">About</p>
+      <div class="prose">
+        <h2>One span at a time.</h2>
+        <p>A bridge is only as good as the row of piers holding it up. We work the same way: a clear goal, a solid plan, and consistent support at every step between where you are and where you want to be.</p>
+        <p>We keep teams small, communication direct, and the work focused on outcomes you can see.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block wrap" id="work">
+    <div class="split">
+      <p class="label">What we do</p>
+      <div>
+        <h2>From first sketch to open road.</h2>
+      </div>
+    </div>
+    <ul class="spans">
+      <li>
+        <svg viewBox="0 0 44 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 22h40M6 22l16-18 16 18"/></svg>
+        <h3>Strategy</h3>
+        <p>We map the ground first: what you need, what is in the way, and the shortest sound route across.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 44 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 4h40M6 22v-8a8 8 0 0 1 16 0v8M22 22v-8a8 8 0 0 1 16 0v8"/></svg>
+        <h3>Delivery</h3>
+        <p>We build in sections you can test and use, so progress is visible every week and nothing arrives as a surprise.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 44 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 8h40M2 8c10 12 30 12 40 0M12 8v8M22 8v11M32 8v8"/></svg>
+        <h3>Partnership</h3>
+        <p>We stay on after launch to maintain, improve and extend what we built together.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="block contact" id="contact">
+    <div class="wrap split">
+      <p class="label">Contact</p>
+      <div class="prose">
+        <h2>Let&rsquo;s build the crossing.</h2>
+        <p>Tell us what you are working on.</p>
+        <div class="mail">
+          <code id="email">hello@bridgerow.com</code>
+          <button class="btn" type="button" id="copy">Copy address</button>
+          <span class="copied" id="copied" aria-live="polite"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Bridgerow</span>
+    <span>All rights reserved</span>
+  </div>
+</footer>
+
+<script>
+document.getElementById('copy').addEventListener('click', function () {
+  var text = document.getElementById('email').textContent;
+  var note = document.getElementById('copied');
+  function selectIt() {
+    var r = document.createRange(); r.selectNodeContents(document.getElementById('email'));
+    var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    note.textContent = 'Selected. Press Ctrl+C to copy.';
+  }
+  try {
+    navigator.clipboard.writeText(text).then(function () { note.textContent = 'Copied'; }, selectIt);
+  } catch (e) { selectIt(); }
+});
+</script>
+</body>
+</html>
