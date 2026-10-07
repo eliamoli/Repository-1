@@ -3,201 +3,307 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Bridgerow connects people, ideas and the work that moves them forward.">
+<meta name="description" content="Bridgerow helps small and medium-sized businesses get found, turn enquiries into customers, and automate everyday work.">
 <title>Bridgerow</title>
+<link rel="icon" href="assets/bridgerow-logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;800&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
 <style>
-/* Layout: a viaduct of arches anchors the hero; content runs in one 1120px span with a left-aligned measure. */
+/* Layout: cream pages with pine bands, a brass bridge line between them; one 1120px span.
+   Colors and type come from Bridgerow Brand Guide v1. Single light theme by design: the logo is approved on cream or white only. */
 :root {
-  --stone: #EDEFF0;      /* page ground: cool limestone */
-  --stone-2: #E1E5E7;    /* raised panel */
-  --ink: #142228;        /* text, structure lines */
-  --ink-soft: #4A5A61;   /* secondary text */
-  --rule: #C6CDD1;       /* hairlines */
-  --cobalt: #2945D6;     /* single accent: cable blue */
-  --on-cobalt: #FFFFFF;
-  --f-display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
-  --f-body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
-  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --pine: #0E4A2E;
+  --brass: #C9A227;
+  --sheen: #E8CE7A;
+  --brass-ink: #86690F; /* darker brass for small text on cream (contrast) */
+  --cream: #F5F0E6;
+  --paper: #FFFDF8;
+  --ink: #14231C;
+  --muted: #5C6B60;
+  --on-pine: #FFFFFF;
+  --on-pine-soft: #C9D4C9;
+  --line: #E4DDD0;
+  --f-display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --f-body: "Inter", "Segoe UI", system-ui, sans-serif;
   --span: 1120px;
+  --gutter: clamp(16px, 4vw, 48px);
   color-scheme: light;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --stone: #0F1518; --stone-2: #172024; --ink: #E4EAEC; --ink-soft: #9AA8AE;
-    --rule: #2A363B; --cobalt: #8C9DFF; --on-cobalt: #0F1518; color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --stone: #0F1518; --stone-2: #172024; --ink: #E4EAEC; --ink-soft: #9AA8AE;
-  --rule: #2A363B; --cobalt: #8C9DFF; --on-cobalt: #0F1518; color-scheme: dark;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
-body {
-  margin: 0; background: var(--stone); color: var(--ink);
-  font: 400 1.0625rem/1.6 var(--f-body);
-  padding-inline: clamp(16px, 4vw, 48px);
-}
-.wrap { max-width: var(--span); margin-inline: auto; }
+body { margin: 0; background: var(--cream); color: var(--ink); font: 400 1.0625rem/1.65 var(--f-body); }
+.wrap { max-width: var(--span); margin-inline: auto; padding-inline: var(--gutter); }
 a { color: inherit; }
-a:focus-visible, button:focus-visible { outline: 2px solid var(--cobalt); outline-offset: 3px; border-radius: 2px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; border-radius: 4px; }
+
+.kicker { font: 600 .85rem/1.2 var(--f-display); letter-spacing: .32em; text-transform: uppercase; color: var(--brass-ink); margin: 0 0 16px; }
+.band .kicker, .cta .kicker { color: var(--brass); }
+h1, h2, h3 { font-family: var(--f-display); text-transform: uppercase; text-wrap: balance; margin: 0; }
+h1 { font-weight: 700; font-size: clamp(2.8rem, 7.5vw, 5.4rem); line-height: .98; letter-spacing: .01em; color: var(--pine); }
+h2 { font-weight: 700; font-size: clamp(2rem, 4.5vw, 3.2rem); line-height: 1; letter-spacing: .02em; color: var(--pine); }
+h3 { font-weight: 600; font-size: 1.55rem; line-height: 1.1; letter-spacing: .03em; color: var(--pine); }
+p { margin: 0; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; padding: 14px 24px; border-radius: 6px;
+  font: 600 1rem/1 var(--f-body); text-decoration: none; cursor: pointer; border: 2px solid var(--pine);
+  background: transparent; color: var(--pine); transition: background .2s, color .2s, border-color .2s;
+}
+.btn:hover { background: var(--pine); color: var(--on-pine); }
+.btn.solid { background: var(--pine); color: var(--on-pine); }
+.btn.solid:hover { background: var(--ink); border-color: var(--ink); }
+.btn.brass { background: var(--brass); border-color: var(--brass); color: var(--ink); }
+.btn.brass:hover { background: var(--sheen); border-color: var(--sheen); }
 
 /* header */
-.top {
-  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
-  background: var(--stone); border-bottom: 1px solid var(--rule);
-  margin-inline: calc(-1 * clamp(16px, 4vw, 48px)); padding-inline: clamp(16px, 4vw, 48px);
-}
-.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; }
-.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font: 800 1.5rem/1 var(--f-display); letter-spacing: .02em; text-transform: uppercase; }
-.brand svg { width: 34px; height: 18px; flex: none; }
-.nav { display: flex; gap: clamp(14px, 3vw, 32px); font: 500 .8rem/1 var(--f-mono); text-transform: uppercase; letter-spacing: .08em; }
-.nav a { text-decoration: none; color: var(--ink-soft); }
-.nav a:hover { color: var(--cobalt); }
-@media (max-width: 520px) { .nav a:not(:last-child) { display: none; } }
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: var(--cream); border-bottom: 1px solid var(--line); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-block: 12px; }
+.logo img { display: block; width: clamp(130px, 18vw, 170px); height: auto; }
+.nav { display: flex; align-items: center; gap: clamp(16px, 2.6vw, 32px); font: 600 1rem/1 var(--f-display); letter-spacing: .14em; text-transform: uppercase; }
+.nav a:not(.btn) { text-decoration: none; color: var(--muted); }
+.nav a:not(.btn):hover { color: var(--pine); }
+.nav .btn { padding: 10px 16px; font-size: .9rem; }
+@media (max-width: 720px) { .nav a:not(.btn) { display: none; } }
 
 /* hero */
-.hero { padding-block: clamp(48px, 9vw, 112px) 0; }
-.eyebrow { font: 500 .78rem/1 var(--f-mono); text-transform: uppercase; letter-spacing: .12em; color: var(--cobalt); margin: 0 0 20px; }
-h1 {
-  font: 800 clamp(3.2rem, 11vw, 8.5rem)/.88 var(--f-display);
-  text-transform: uppercase; letter-spacing: -.005em; margin: 0; text-wrap: balance;
+.hero { padding-block: clamp(56px, 9vw, 104px) clamp(48px, 7vw, 80px); display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 80px); align-items: end; }
+@media (max-width: 860px) { .hero { grid-template-columns: minmax(0, 1fr); } }
+.hero .lede { font-size: clamp(1.1rem, 1.7vw, 1.25rem); color: var(--muted); max-width: 32em; margin-top: 24px; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+.ledger { background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 28px; display: grid; gap: 18px; }
+.ledger .label { font: 600 .8rem/1 var(--f-display); letter-spacing: .28em; text-transform: uppercase; color: var(--muted); }
+.ledger ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.ledger li { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 12px; align-items: start; font-size: .98rem; }
+.ledger li svg { width: 22px; height: 22px; margin-top: 2px; color: var(--brass); }
+.ledger li b { display: block; color: var(--pine); font-weight: 600; }
+.ledger li span { color: var(--muted); }
+
+/* brass bridge rule echoing the mark */
+.bridge { display: block; width: 100%; height: 34px; color: var(--brass); }
+
+/* pine band: pillars */
+.band { background: var(--pine); color: var(--on-pine); padding-block: clamp(64px, 9vw, 104px); }
+.band h2 { color: var(--on-pine); }
+.band .intro { color: var(--on-pine-soft); max-width: 36em; margin-top: 16px; }
+.pillars { list-style: none; margin: 48px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1px solid rgba(255,255,255,.18); }
+@media (max-width: 860px) { .pillars { grid-template-columns: minmax(0, 1fr); } }
+.pillars li { padding: 32px 32px 0 0; display: grid; gap: 12px; align-content: start; }
+.pillars li + li { padding-left: 32px; border-left: 1px solid rgba(255,255,255,.18); }
+@media (max-width: 860px) {
+  .pillars li, .pillars li + li { padding: 28px 0; border-left: 0; }
+  .pillars li + li { border-top: 1px solid rgba(255,255,255,.18); }
 }
-h1 em { font-style: normal; color: var(--cobalt); }
-.lede { max-width: 34em; font-size: clamp(1.1rem, 1.8vw, 1.3rem); color: var(--ink-soft); margin: 28px 0 0; }
-.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
-.btn {
-  display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px;
-  font: 600 1rem/1 var(--f-body); text-decoration: none; border: 1.5px solid var(--ink); background: transparent; color: var(--ink); cursor: pointer;
-  transition: background .2s, color .2s, border-color .2s;
+.pillars h3 { color: var(--sheen); font-size: 2rem; font-weight: 700; letter-spacing: .06em; }
+.pillars p { color: var(--on-pine-soft); }
+.pillars .eg { font-size: .92rem; color: var(--on-pine); border-left: 3px solid var(--brass); padding-left: 14px; margin-top: 4px; }
+
+/* sections on cream */
+.section { padding-block: clamp(64px, 9vw, 112px); }
+.head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: clamp(20px, 5vw, 64px); align-items: end; margin-bottom: 44px; }
+@media (max-width: 860px) { .head { grid-template-columns: minmax(0, 1fr); } }
+.head p { color: var(--muted); max-width: 34em; }
+
+.services { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+@media (max-width: 760px) { .services { grid-template-columns: minmax(0, 1fr); } }
+.svc { background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 28px; display: grid; gap: 12px; align-content: start; }
+.svc .for { font: 600 .8rem/1.3 var(--f-display); letter-spacing: .2em; text-transform: uppercase; color: var(--brass-ink); }
+.svc p { color: var(--muted); }
+.svc .leave { color: var(--ink); font-size: .95rem; padding-top: 12px; border-top: 1px solid var(--line); }
+.also { margin-top: 24px; color: var(--muted); max-width: 52em; }
+.also b { color: var(--pine); font-weight: 600; }
+
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; counter-reset: step; }
+@media (max-width: 900px) { .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 32px; } }
+@media (max-width: 520px) { .steps { grid-template-columns: minmax(0, 1fr); } }
+.steps li { counter-increment: step; display: grid; gap: 10px; align-content: start; padding-right: 24px; }
+.steps li::before {
+  content: counter(step); display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%;
+  border: 2px solid var(--brass); color: var(--pine); font: 700 1.3rem/1 var(--f-display); margin-bottom: 6px;
 }
-.btn.primary { background: var(--cobalt); border-color: var(--cobalt); color: var(--on-cobalt); }
-.btn:hover { background: var(--ink); border-color: var(--ink); color: var(--stone); }
+.steps p { color: var(--muted); font-size: .98rem; }
 
-.viaduct { display: block; width: 100%; height: auto; margin-top: clamp(40px, 7vw, 80px); color: var(--ink); }
-.viaduct .deck { stroke: var(--cobalt); }
+.principles { border-top: 1px solid var(--line); }
+.rules { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 40px; }
+@media (max-width: 760px) { .rules { grid-template-columns: minmax(0, 1fr); } }
+.rules li { border-left: 4px solid var(--brass); background: var(--paper); border-radius: 0 10px 10px 0; padding: 16px 20px; }
+.rules b { display: block; font-family: var(--f-display); font-size: 1.25rem; letter-spacing: .04em; text-transform: uppercase; color: var(--pine); font-weight: 600; }
+.rules span { color: var(--muted); font-size: .97rem; }
 
-/* sections */
-section.block { padding-block: clamp(64px, 9vw, 112px); border-top: 1px solid var(--rule); }
-.split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: clamp(24px, 5vw, 72px); }
-@media (max-width: 760px) { .split { grid-template-columns: minmax(0, 1fr); } }
-.label { font: 500 .78rem/1.4 var(--f-mono); text-transform: uppercase; letter-spacing: .12em; color: var(--ink-soft); margin: 0; }
-h2 { font: 700 clamp(2.2rem, 5vw, 3.6rem)/.95 var(--f-display); text-transform: uppercase; margin: 0 0 24px; text-wrap: balance; }
-.prose p { max-width: 38em; margin: 0 0 1em; }
-.prose p:last-child { margin-bottom: 0; }
+/* contact */
+.cta { background: var(--pine); color: var(--on-pine); padding-block: clamp(64px, 9vw, 104px); }
+.cta .wrap { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: clamp(28px, 6vw, 72px); align-items: center; }
+@media (max-width: 860px) { .cta .wrap { grid-template-columns: minmax(0, 1fr); } }
+.cta h2 { color: var(--on-pine); }
+.cta p { color: var(--on-pine-soft); margin-top: 16px; max-width: 34em; }
+.mailbox { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.18); border-radius: 12px; padding: 24px; display: grid; gap: 14px; }
+.mailbox .label { font: 600 .8rem/1 var(--f-display); letter-spacing: .28em; text-transform: uppercase; color: var(--sheen); }
+.mailbox code { font: 500 clamp(1.05rem, 2.6vw, 1.35rem)/1.3 var(--f-body); color: var(--on-pine); user-select: all; overflow-wrap: anywhere; }
+.mailbox .row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.copied { font-size: .9rem; color: var(--sheen); min-height: 1.2em; }
 
-.spans { list-style: none; margin: 40px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1.5px solid var(--ink); }
-@media (max-width: 860px) { .spans { grid-template-columns: minmax(0, 1fr); } }
-.spans li { padding: 28px 28px 32px 0; display: grid; gap: 12px; align-content: start; }
-.spans li + li { border-left: 1px solid var(--rule); padding-left: 28px; }
-@media (max-width: 860px) { .spans li + li { border-left: 0; padding-left: 0; border-top: 1px solid var(--rule); } .spans li { padding-right: 0; } }
-.spans svg { width: 44px; height: 24px; color: var(--cobalt); }
-.spans h3 { font: 700 1.6rem/1 var(--f-display); text-transform: uppercase; margin: 0; }
-.spans p { margin: 0; color: var(--ink-soft); }
-
-.contact { background: var(--stone-2); margin-inline: calc(-1 * clamp(16px, 4vw, 48px)); padding-inline: clamp(16px, 4vw, 48px); border-top: 0; }
-.mail { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: 8px; }
-.mail code { font: 500 clamp(1.1rem, 3vw, 1.6rem)/1.2 var(--f-mono); color: var(--ink); user-select: all; overflow-wrap: anywhere; }
-.copied { font: 500 .8rem/1 var(--f-mono); color: var(--cobalt); min-height: 1em; }
-
-footer { padding-block: 32px; font: 400 .8rem/1.5 var(--f-mono); color: var(--ink-soft); }
-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+footer { padding-block: 36px; }
+footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; color: var(--muted); font-size: .9rem; }
+footer img { width: 130px; height: auto; display: block; }
+footer .line { font: 600 .85rem/1 var(--f-display); letter-spacing: .3em; text-transform: uppercase; color: var(--brass-ink); }
 </style>
 </head>
 <body>
 
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="Bridgerow home">
-      <svg viewBox="0 0 34 18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-        <path d="M1 3h32M3 17V9a4 4 0 0 1 8 0v8M13 17V9a4 4 0 0 1 8 0v8M23 17V9a4 4 0 0 1 8 0v8"/>
-      </svg>
-      Bridgerow
-    </a>
+    <a class="logo" href="#top"><img src="assets/bridgerow-logo.png" alt="Bridgerow" width="760" height="233"></a>
     <nav class="nav" aria-label="Primary">
-      <a href="#about">About</a>
-      <a href="#work">What we do</a>
-      <a href="#contact">Contact</a>
+      <a href="#outcomes">Outcomes</a>
+      <a href="#services">Services</a>
+      <a href="#how">How we work</a>
+      <a class="btn solid" href="#contact">Free assessment</a>
     </nav>
   </div>
 </header>
 
 <main id="top">
-  <div class="hero wrap">
-    <p class="eyebrow">Bridgerow</p>
-    <h1>Built to <em>connect</em> what comes next.</h1>
-    <p class="lede">Bridgerow brings people, ideas and the right expertise together, then does the steady work of turning them into something that lasts.</p>
-    <div class="actions">
-      <a class="btn primary" href="#contact">Start a conversation</a>
-      <a class="btn" href="#work">See what we do</a>
+  <div class="wrap hero">
+    <div>
+      <p class="kicker">Get found &middot; Convert &middot; Automate</p>
+      <h1>Practical systems for growing businesses.</h1>
+      <p class="lede">Bridgerow helps small and medium-sized businesses get found, turn enquiries into customers, and automate everyday work.</p>
+      <div class="actions">
+        <a class="btn solid" href="#contact">Book a free assessment call</a>
+        <a class="btn" href="#services">See how we help</a>
+      </div>
     </div>
-    <svg class="viaduct" viewBox="0 0 1120 150" fill="none" stroke="currentColor" aria-hidden="true">
-      <line class="deck" x1="0" y1="18" x2="1120" y2="18" stroke-width="4"/>
-      <line x1="0" y1="34" x2="1120" y2="34" stroke-width="1.5"/>
-      <g stroke-width="1.5">
-        <path d="M0 150V100a60 60 0 0 1 120 0v50"/>
-        <path d="M140 150V100a60 60 0 0 1 120 0v50"/>
-        <path d="M280 150V100a60 60 0 0 1 120 0v50"/>
-        <path d="M420 150V100a60 60 0 0 1 120 0v50"/>
-        <path d="M560 150V100a60 60 0 0 1 120 0v50"/>
-        <path d="M700 150V100a60 60 0 0 1 120 0v50"/>
-        <path d="M840 150V100a60 60 0 0 1 120 0v50"/>
-        <path d="M980 150V100a60 60 0 0 1 120 0v50"/>
-        <path d="M120 34v116M140 34v116M260 34v116M280 34v116M400 34v116M420 34v116M540 34v116M560 34v116M680 34v116M700 34v116M820 34v116M840 34v116M960 34v116M980 34v116M1100 34v116"/>
-      </g>
-    </svg>
+    <aside class="ledger" aria-label="Where work gets stuck">
+      <p class="label">Sound familiar?</p>
+      <ol>
+        <li>
+          <svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 15c4-6 14-6 18 0M2 15h18M7 11.5V15M11 10v5M15 11.5V15"/></svg>
+          <div><b>Customers can&rsquo;t find you.</b><span>Listings are out of date and the website doesn&rsquo;t make the next step obvious.</span></div>
+        </li>
+        <li>
+          <svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 15c4-6 14-6 18 0M2 15h18M7 11.5V15M11 10v5M15 11.5V15"/></svg>
+          <div><b>Enquiries go quiet.</b><span>A form or a missed call comes in and nobody clearly owns the reply.</span></div>
+        </li>
+        <li>
+          <svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 15c4-6 14-6 18 0M2 15h18M7 11.5V15M11 10v5M15 11.5V15"/></svg>
+          <div><b>The same tasks, every week.</b><span>You already pay for tools that could do more, but nobody has time to set them up.</span></div>
+        </li>
+      </ol>
+    </aside>
   </div>
 
-  <section class="block wrap" id="about">
-    <div class="split">
-      <p class="label">About</p>
-      <div class="prose">
-        <h2>One span at a time.</h2>
-        <p>A bridge is only as good as the row of piers holding it up. We work the same way: a clear goal, a solid plan, and consistent support at every step between where you are and where you want to be.</p>
-        <p>We keep teams small, communication direct, and the work focused on outcomes you can see.</p>
-      </div>
+  <svg class="bridge" viewBox="0 0 1200 34" preserveAspectRatio="none" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+    <path d="M0 33C300 2 900 2 1200 33M120 33C380 12 820 12 1080 33M600 9.5v12.5M360 16v12M840 16v12"/>
+  </svg>
+
+  <section class="band" id="outcomes">
+    <div class="wrap">
+      <p class="kicker">What we work on</p>
+      <h2>Three outcomes. Every engagement serves one.</h2>
+      <p class="intro">We start with the result your business needs, then pick the simplest way to get there. Often that means tools you already have.</p>
+      <ul class="pillars">
+        <li>
+          <h3>Get found</h3>
+          <p>Accurate listings, clear service information, and a website path that turns a search into a call or a booking.</p>
+          <p class="eg">Example: a repeatable, human-checked routine for keeping service pages and business listings current.</p>
+        </li>
+        <li>
+          <h3>Convert</h3>
+          <p>Every enquiry gets an owner and a response. Quotes get followed up. Nothing worth winning goes quiet.</p>
+          <p class="eg">Example: a new enquiry lands in your CRM, goes to the right person, and comes with a draft reply to check.</p>
+        </li>
+        <li>
+          <h3>Automate</h3>
+          <p>The repetitive work runs on your own software, set up properly, with people handling the exceptions.</p>
+          <p class="eg">Example: approved meeting notes become assigned tasks, with a human check before anything goes out.</p>
+        </li>
+      </ul>
     </div>
   </section>
 
-  <section class="block wrap" id="work">
-    <div class="split">
-      <p class="label">What we do</p>
+  <section class="section" id="services">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <p class="kicker">Services</p>
+          <h2>Start small. Keep what works.</h2>
+        </div>
+        <p>Each service has a clear scope and a clear finish line. Buy one on its own, or combine them into a plan built around your business.</p>
+      </div>
+      <div class="services">
+        <article class="svc">
+          <p class="for">For &ldquo;we don&rsquo;t know what&rsquo;s worth using&rdquo;</p>
+          <h3>Practical AI Review</h3>
+          <p>We look at how the work actually gets done and which subscriptions you already pay for, then rank what to keep, change, stop or leave alone.</p>
+          <p class="leave">You leave with a prioritised plan, an owner for the first step, and a way to tell whether it worked.</p>
+        </article>
+        <article class="svc">
+          <p class="for">For &ldquo;we know where work gets stuck&rdquo;</p>
+          <h3>One Workflow Setup</h3>
+          <p>We configure one workflow in the tools you use, test it with real cases, including the ones that go wrong, and train the person who will run it.</p>
+          <p class="leave">You leave with a working process, a short operating guide, and clear steps to pause or undo it.</p>
+        </article>
+        <article class="svc">
+          <p class="for">For &ldquo;we have the tools, not the confidence&rdquo;</p>
+          <h3>Team Training</h3>
+          <p>Hands-on practice on your team&rsquo;s real tasks, in the tools they already use, with plain guidance on what to trust and when to check.</p>
+          <p class="leave">Your team leaves with reusable templates and checklists, and can do the task without us.</p>
+        </article>
+        <article class="svc">
+          <p class="for">For &ldquo;our website doesn&rsquo;t explain us&rdquo;</p>
+          <h3>Digital Presence</h3>
+          <p>A landing page, a small business website, or targeted fixes to the site you have, built so customers understand what you do and how to reach you.</p>
+          <p class="leave">You leave with a site you own, can edit, and know how to update.</p>
+        </article>
+      </div>
+      <p class="also"><b>Also available:</b> ongoing support with a defined monthly allowance, and custom development when a real gap can&rsquo;t be covered by standard tools.</p>
+    </div>
+  </section>
+
+  <section class="section principles" id="how">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <p class="kicker">How we work</p>
+          <h2>From first call to handover.</h2>
+        </div>
+        <p>A clear sequence, so you always know what happens next and what you get at the end.</p>
+      </div>
+      <ol class="steps">
+        <li><h3>Free assessment</h3><p>A conversation about one part of the business you want to work better, using a recent real example.</p></li>
+        <li><h3>Agree a small step</h3><p>We suggest the smallest useful change, what it needs, and who will own it. Sometimes the answer is to leave things alone.</p></li>
+        <li><h3>Build and test</h3><p>We set it up with safe test data and check it with the people who will use it, including what happens when it fails.</p></li>
+        <li><h3>Hand over</h3><p>You get access, a written guide and a walkthrough, so you can run it without us.</p></li>
+      </ol>
+
+      <div class="head" style="margin-top: clamp(64px, 8vw, 96px);">
+        <div>
+          <p class="kicker">What you can expect</p>
+          <h2>No hype. No black box.</h2>
+        </div>
+      </div>
+      <ul class="rules">
+        <li><b>&ldquo;No new tool&rdquo; is a valid answer</b><span>If a feature you already pay for does the job, we&rsquo;ll tell you.</span></li>
+        <li><b>People handle the exceptions</b><span>Automations have human checks and a clear way to stop or undo them.</span></li>
+        <li><b>You own what we build</b><span>Accounts, assets and settings stay in your name, with written handover notes.</span></li>
+        <li><b>Plain language, clear scope</b><span>Agreed in writing before we start. Changes are approved by you first.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="cta" id="contact">
+    <div class="wrap">
       <div>
-        <h2>From first sketch to open road.</h2>
+        <p class="kicker">Free assessment call</p>
+        <h2>What takes more time than it should?</h2>
+        <p>Tell us about one recurring task or problem in your business. We&rsquo;ll talk it through and suggest a sensible next step.</p>
       </div>
-    </div>
-    <ul class="spans">
-      <li>
-        <svg viewBox="0 0 44 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 22h40M6 22l16-18 16 18"/></svg>
-        <h3>Strategy</h3>
-        <p>We map the ground first: what you need, what is in the way, and the shortest sound route across.</p>
-      </li>
-      <li>
-        <svg viewBox="0 0 44 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 4h40M6 22v-8a8 8 0 0 1 16 0v8M22 22v-8a8 8 0 0 1 16 0v8"/></svg>
-        <h3>Delivery</h3>
-        <p>We build in sections you can test and use, so progress is visible every week and nothing arrives as a surprise.</p>
-      </li>
-      <li>
-        <svg viewBox="0 0 44 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 8h40M2 8c10 12 30 12 40 0M12 8v8M22 8v11M32 8v8"/></svg>
-        <h3>Partnership</h3>
-        <p>We stay on after launch to maintain, improve and extend what we built together.</p>
-      </li>
-    </ul>
-  </section>
-
-  <section class="block contact" id="contact">
-    <div class="wrap split">
-      <p class="label">Contact</p>
-      <div class="prose">
-        <h2>Let&rsquo;s build the crossing.</h2>
-        <p>Tell us what you are working on.</p>
-        <div class="mail">
-          <code id="email">hello@bridgerow.com</code>
-          <button class="btn" type="button" id="copy">Copy address</button>
+      <div class="mailbox">
+        <p class="label">Email us</p>
+        <code id="email">hello@bridgerow.com</code>
+        <div class="row">
+          <button class="btn brass" type="button" id="copy">Copy address</button>
           <span class="copied" id="copied" aria-live="polite"></span>
         </div>
       </div>
@@ -207,22 +313,23 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 
 <footer>
   <div class="wrap">
+    <img src="assets/bridgerow-logo.png" alt="Bridgerow" width="760" height="233">
+    <span class="line">Get found &middot; Convert &middot; Automate</span>
     <span>&copy; 2026 Bridgerow</span>
-    <span>All rights reserved</span>
   </div>
 </footer>
 
 <script>
 document.getElementById('copy').addEventListener('click', function () {
-  var text = document.getElementById('email').textContent;
+  var el = document.getElementById('email');
   var note = document.getElementById('copied');
   function selectIt() {
-    var r = document.createRange(); r.selectNodeContents(document.getElementById('email'));
+    var r = document.createRange(); r.selectNodeContents(el);
     var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
     note.textContent = 'Selected. Press Ctrl+C to copy.';
   }
   try {
-    navigator.clipboard.writeText(text).then(function () { note.textContent = 'Copied'; }, selectIt);
+    navigator.clipboard.writeText(el.textContent).then(function () { note.textContent = 'Copied'; }, selectIt);
   } catch (e) { selectIt(); }
 });
 </script>
