@@ -105,25 +105,23 @@ p { margin: 0; }
 @media (max-width: 860px) { .head { grid-template-columns: minmax(0, 1fr); } }
 .head p { color: var(--muted); max-width: 34em; }
 
-.group + .group { margin-top: 48px; }
-.group-title { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 8px clamp(20px, 5vw, 64px); align-items: baseline; padding-bottom: 14px; border-bottom: 2px solid var(--pine); }
-@media (max-width: 860px) { .group-title { grid-template-columns: minmax(0, 1fr); } }
-.group-title h3 { font-size: 1.35rem; letter-spacing: .08em; }
-.group-title p { color: var(--muted); font-size: .95rem; }
-.svc-list { list-style: none; margin: 0; padding: 0; }
-.svc { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr) minmax(0, 1.1fr); gap: 16px clamp(20px, 3.5vw, 48px); padding-block: 28px; border-bottom: 1px solid var(--line); }
-@media (max-width: 900px) { .svc { grid-template-columns: minmax(0, 1fr); } }
-.svc .tag { display: inline-block; font: 600 .78rem/1 var(--f-display); letter-spacing: .2em; text-transform: uppercase; color: var(--brass-ink); margin-bottom: 8px; }
-.svc h4 { font: 700 1.7rem/1.05 var(--f-display); text-transform: uppercase; letter-spacing: .02em; color: var(--pine); margin: 0; text-wrap: balance; }
-.svc .what { color: var(--ink); }
-.svc .fit { color: var(--muted); font-size: .95rem; margin-top: 10px; }
-.svc .fit b { color: var(--pine); font-weight: 600; }
-.svc .get-label { font: 600 .78rem/1 var(--f-display); letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
-.svc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
-.svc ul li { display: grid; grid-template-columns: 18px minmax(0, 1fr); gap: 10px; font-size: .97rem; }
-.svc ul li::before { content: ""; width: 10px; height: 6px; margin-top: 8px; border-left: 2px solid var(--pine); border-bottom: 2px solid var(--pine); transform: rotate(-45deg); }
-.unsure { margin-top: 40px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 24px; background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 24px 28px; }
-.unsure p { color: var(--ink); font-weight: 500; }
+.groups { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(20px, 3vw, 32px); }
+@media (max-width: 960px) { .groups { grid-template-columns: minmax(0, 1fr); } }
+.group { background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 28px; display: grid; gap: 20px; align-content: start; }
+.group-head { display: grid; gap: 6px; padding-bottom: 18px; border-bottom: 2px solid var(--pine); }
+.group-head .tag { font: 600 .78rem/1 var(--f-display); letter-spacing: .22em; text-transform: uppercase; color: var(--brass-ink); }
+.group-head h3 { font-size: 1.8rem; font-weight: 700; }
+.group-head p { color: var(--muted); font-size: .95rem; }
+.svc-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 18px; }
+.svc h4 { font: 600 1.05rem/1.3 var(--f-body); color: var(--pine); margin: 0 0 4px; }
+.svc p { color: var(--muted); font-size: .95rem; }
+.next { margin-top: 40px; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 16px 32px; background: var(--pine); color: var(--on-pine); border-radius: 12px; padding: clamp(24px, 3vw, 32px); }
+@media (max-width: 760px) { .next { grid-template-columns: minmax(0, 1fr); } }
+.next h3 { color: var(--on-pine); font-size: 1.7rem; }
+.next p { color: var(--on-pine-soft); margin-top: 6px; }
+.next .actions { margin-top: 0; }
+.btn.light { border-color: var(--on-pine-soft); color: var(--on-pine); }
+.btn.light:hover { background: var(--on-pine); color: var(--pine); border-color: var(--on-pine); }
 
 .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; counter-reset: step; }
 @media (max-width: 900px) { .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 32px; } }
@@ -144,14 +142,20 @@ p { margin: 0; }
 
 /* contact */
 .cta { background: var(--pine); color: var(--on-pine); padding-block: clamp(64px, 9vw, 104px); }
-.cta .wrap { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: clamp(28px, 6vw, 72px); align-items: center; }
-@media (max-width: 860px) { .cta .wrap { grid-template-columns: minmax(0, 1fr); } }
+.cta .intro { max-width: 40em; margin-bottom: 40px; }
 .cta h2 { color: var(--on-pine); }
-.cta p { color: var(--on-pine-soft); margin-top: 16px; max-width: 34em; }
-.mailbox { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.18); border-radius: 12px; padding: 24px; display: grid; gap: 14px; }
+.cta .intro p { color: var(--on-pine-soft); margin-top: 16px; }
+.paths { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+@media (max-width: 760px) { .paths { grid-template-columns: minmax(0, 1fr); } }
+.path { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.18); border-radius: 12px; padding: 28px; display: grid; gap: 14px; align-content: start; }
+.path .label { font: 600 .8rem/1 var(--f-display); letter-spacing: .28em; text-transform: uppercase; color: var(--sheen); }
+.path h3 { color: var(--on-pine); font-size: 1.8rem; font-weight: 700; }
+.path p { color: var(--on-pine-soft); }
+.path ul { margin: 0; padding-left: 1.1em; color: var(--on-pine-soft); display: grid; gap: 4px; }
+.path .btn { justify-self: start; margin-top: 6px; }
+.mailbox { margin-top: 28px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.18); }
 .mailbox .label { font: 600 .8rem/1 var(--f-display); letter-spacing: .28em; text-transform: uppercase; color: var(--sheen); }
-.mailbox code { font: 500 clamp(1.05rem, 2.6vw, 1.35rem)/1.3 var(--f-body); color: var(--on-pine); user-select: all; overflow-wrap: anywhere; }
-.mailbox .row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.mailbox code { font: 500 clamp(1.05rem, 2.6vw, 1.3rem)/1.3 var(--f-body); color: var(--on-pine); user-select: all; overflow-wrap: anywhere; }
 .copied { font-size: .9rem; color: var(--sheen); min-height: 1.2em; }
 
 footer { padding-block: 36px; }
@@ -182,7 +186,7 @@ footer .line { font: 600 .85rem/1 var(--f-display); letter-spacing: .3em; text-t
       <p class="lede">Bridgerow helps small and medium-sized businesses get found, turn enquiries into customers, and automate everyday work.</p>
       <div class="actions">
         <a class="btn solid" href="#contact">Book a free assessment call</a>
-        <a class="btn" href="#services">See how we help</a>
+        <a class="btn" href="#contact">Ask for a quote</a>
       </div>
     </div>
     <aside class="ledger" aria-label="Where work gets stuck">
@@ -240,54 +244,44 @@ footer .line { font: 600 .85rem/1 var(--f-display); letter-spacing: .3em; text-t
           <p class="kicker">Services</p>
           <h2>What we offer.</h2>
         </div>
-        <p>Six services, each with an agreed scope and a clear finish line. Start with any one of them, or combine them into a plan for your business.</p>
+        <p>Practical help in three areas. Every project has an agreed scope and a written quote before we start.</p>
       </div>
-
-      <div class="group">
-        <div class="group-title"><h3>Starting points</h3><p>One-off projects. Pick the one that matches your problem.</p></div>
-        <ul class="svc-list">
-        <li class="svc">
-          <div><span class="tag">Plan</span><h4>Practical AI Review</h4></div>
-          <div><p class="what">We review how your team works and the tools you already pay for, then tell you what to keep, change, stop or leave alone.</p><p class="fit"><b>Good fit if:</b> you keep hearing about new tools and don&rsquo;t know which are worth it.</p></div>
-          <div><p class="get-label">You get</p><ul><li>A map of your workflows and subscriptions</li><li>A ranked action plan</li><li>An owner and a success check for the first step</li></ul></div>
-        </li>
-        <li class="svc">
-          <div><span class="tag">Convert &middot; Automate</span><h4>One Workflow Setup</h4></div>
-          <div><p class="what">We set up one workflow in the tools you already use. For example, new enquiries go to the right person with a draft reply ready to check.</p><p class="fit"><b>Good fit if:</b> you know where work gets stuck but have no time to fix it.</p></div>
-          <div><p class="get-label">You get</p><ul><li>One configured and tested workflow</li><li>A short guide, including how to pause or undo it</li><li>A handover walkthrough for the person who runs it</li></ul></div>
-        </li>
-        <li class="svc">
-          <div><span class="tag">Adoption</span><h4>Team Training</h4></div>
-          <div><p class="what">A hands-on workshop built around your team&rsquo;s real tasks, in the tools they already use.</p><p class="fit"><b>Good fit if:</b> you have the tools, but people use them inconsistently or don&rsquo;t trust them yet.</p></div>
-          <div><p class="get-label">You get</p><ul><li>Practice on two of your everyday tasks</li><li>Reusable templates, prompts and checklists</li><li>Plain guidance on what to trust and when to check</li></ul></div>
-        </li>
-        <li class="svc">
-          <div><span class="tag">Get found</span><h4>Digital Presence</h4></div>
-          <div><p class="what">A landing page, a small business website, or targeted fixes to the site you already have.</p><p class="fit"><b>Good fit if:</b> your website doesn&rsquo;t explain what you do or make it easy to get in touch.</p></div>
-          <div><p class="get-label">You get</p><ul><li>Mobile-ready pages with a working contact or booking path</li><li>A site you own and can edit</li><li>A walkthrough of routine updates</li></ul></div>
-        </li>
-        </ul>
+      <div class="groups">
+        <article class="group">
+          <div class="group-head"><span class="tag">Convert &middot; Automate</span><h3>AI and workflows</h3><p>Get more from the tools you already have.</p></div>
+          <ul class="svc-list">
+            <li class="svc"><h4>Practical AI Review</h4><p>We look at how your team works and what you already pay for, then tell you what to keep, change, stop or leave alone.</p></li>
+            <li class="svc"><h4>Workflow Setup</h4><p>We set up one workflow in your existing tools, test it with real cases, and hand it over to the person who runs it.</p></li>
+            <li class="svc"><h4>Team Training</h4><p>A hands-on workshop on your team&rsquo;s real tasks, so people use your tools with confidence.</p></li>
+            <li class="svc"><h4>Ongoing AI Support</h4><p>A small monthly allowance for questions, a regular review and minor changes.</p></li>
+          </ul>
+        </article>
+        <article class="group">
+          <div class="group-head"><span class="tag">Get found</span><h3>Websites and media</h3><p>Explain your business clearly and make it easy to reach you.</p></div>
+          <ul class="svc-list">
+            <li class="svc"><h4>Websites</h4><p>A landing page, a small business website, or targeted improvements to the site you already have.</p></li>
+            <li class="svc"><h4>Media packs</h4><p>Social graphics or short edited videos made from your own material.</p></li>
+            <li class="svc"><h4>Brand refresh</h4><p>A refreshed palette, fonts and templates that keep your name and logo. Full rebrands are scoped separately.</p></li>
+            <li class="svc"><h4>Website Care</h4><p>Monthly checks and small updates for a site we hand over to you.</p></li>
+          </ul>
+        </article>
+        <article class="group">
+          <div class="group-head"><span class="tag">Build</span><h3>Custom solutions</h3><p>For needs that standard tools genuinely can&rsquo;t meet.</p></div>
+          <ul class="svc-list">
+            <li class="svc"><h4>Custom discovery</h4><p>We confirm the gap, write a specification, and give you a clear build or don&rsquo;t-build recommendation.</p></li>
+            <li class="svc"><h4>Custom builds</h4><p>When building is worth it, we quote it as a separate project with agreed milestones and handover.</p></li>
+          </ul>
+        </article>
       </div>
-
-      <div class="group">
-        <div class="group-title"><h3>Ongoing and custom</h3><p>For after the first project, or when standard tools fall short.</p></div>
-        <ul class="svc-list">
-        <li class="svc">
-          <div><span class="tag">Keep it running</span><h4>Ongoing Support</h4></div>
-          <div><p class="what">A set number of support hours each month for questions, small fixes and a scheduled review.</p><p class="fit"><b>Good fit if:</b> your systems work, but you want someone to call when something small breaks.</p></div>
-          <div><p class="get-label">You get</p><ul><li>A scheduled review each month</li><li>A record of every issue and change</li><li>A heads-up before your hours run out</li></ul></div>
-        </li>
-        <li class="svc">
-          <div><span class="tag">Build</span><h4>Custom Solutions</h4></div>
-          <div><p class="what">Paid discovery for a need that standard tools can&rsquo;t meet. We only recommend building when it&rsquo;s clearly worth the cost.</p><p class="fit"><b>Good fit if:</b> an off-the-shelf tool genuinely can&rsquo;t do what you need.</p></div>
-          <div><p class="get-label">You get</p><ul><li>A written specification</li><li>A cost, risk and feasibility assessment</li><li>A clear build or don&rsquo;t-build recommendation</li></ul></div>
-        </li>
-        </ul>
-      </div>
-
-      <div class="unsure">
-        <p>Not sure which one fits? We&rsquo;ll work it out together on a free assessment call.</p>
-        <a class="btn solid" href="#contact">Book a free assessment call</a>
+      <div class="next">
+        <div>
+          <h3>Not sure where to start?</h3>
+          <p>Book a free assessment call, or tell us what you need and we&rsquo;ll send a quote.</p>
+        </div>
+        <div class="actions">
+          <a class="btn brass" href="#contact">Book a free call</a>
+          <a class="btn light" href="#contact">Ask for a quote</a>
+        </div>
       </div>
     </div>
   </section>
@@ -325,18 +319,32 @@ footer .line { font: 600 .85rem/1 var(--f-display); letter-spacing: .3em; text-t
 
   <section class="cta" id="contact">
     <div class="wrap">
-      <div>
-        <p class="kicker">Free assessment call</p>
+      <div class="intro">
+        <p class="kicker">Get in touch</p>
         <h2>What takes more time than it should?</h2>
-        <p>Tell us about one recurring task or problem in your business. We&rsquo;ll talk it through and suggest a sensible next step.</p>
+        <p>There are two ways to start. Both begin with a short email.</p>
+      </div>
+      <div class="paths">
+        <div class="path">
+          <p class="label">Not sure what you need</p>
+          <h3>Book a free assessment call</h3>
+          <p>A short conversation about one part of your business you want to work better. No obligation, and no sales script.</p>
+          <a class="btn brass" href="mailto:molinari@bridgerow.ca?subject=Free%20assessment%20call">Book a free call</a>
+        </div>
+        <div class="path">
+          <p class="label">Know what you need</p>
+          <h3>Ask for a quote</h3>
+          <p>Tell us:</p>
+          <ul><li>Which service you&rsquo;re interested in</li><li>A little about your business</li><li>When you&rsquo;d like to start</li></ul>
+          <p>We&rsquo;ll reply with a written quote.</p>
+          <a class="btn light" href="mailto:molinari@bridgerow.ca?subject=Quote%20request">Ask for a quote</a>
+        </div>
       </div>
       <div class="mailbox">
-        <p class="label">Email us</p>
+        <p class="label">Email</p>
         <code id="email">molinari@bridgerow.ca</code>
-        <div class="row">
-          <button class="btn brass" type="button" id="copy">Copy address</button>
-          <span class="copied" id="copied" aria-live="polite"></span>
-        </div>
+        <button class="btn light" type="button" id="copy">Copy address</button>
+        <span class="copied" id="copied" aria-live="polite"></span>
       </div>
     </div>
   </section>
