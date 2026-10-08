@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Where did your last inquiry wait? | Bridgerow</title>
+<!-- Campaign landing page for the October 2026 inquiry ads. Claim IDs in data-claim attributes refer to Brand Brain doc 04. -->
+<meta name="description" content="Talk us through where inquiries stall. We'll suggest a useful first change, starting with the tools you already use.">
+<link rel="icon" href="../assets/bridgerow-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --color-bg:#F5F0E6;--color-surface:#FFFFFF;--color-text:#14231C;--color-text-heading:#0E4A2E;--color-text-muted:#5C6B60;
+  --color-accent-text:#846B1A;--color-line:#E4DDD0;--color-input-border:#5C6B60;
+  --color-action:#0E4A2E;--color-action-text:#F5F0E6;--color-action-hover:#125E3B;--color-action-active:#0A3320;
+  --color-action-alt:#C9A227;--color-action-alt-text:#14231C;--color-action-alt-hover:#E8CE7A;
+  --color-inverse-bg:#0E4A2E;--color-inverse-text:#F5F0E6;--color-sheen:#E8CE7A;
+  --color-focus:#0E4A2E;--color-focus-inverse:#E8CE7A;--color-error:#A33B2E;--color-error-bg:#FBEDEA;--color-success-bg:#E7F0EA;
+  --radius-sm:4px;--radius-md:8px;--space-section:96px;--gutter:24px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--color-bg);color:var(--color-text);font:400 16px/1.625 Inter,system-ui,sans-serif}
+img{max-width:100%}
+.skip{position:absolute;left:-999px;top:16px}
+.skip:focus{left:16px;background:var(--color-surface);color:var(--color-action);font-weight:600;padding:12px 16px;min-height:44px;z-index:9}
+:focus-visible{outline:3px solid var(--color-focus);outline-offset:2px}
+.inverse :focus-visible{outline-color:var(--color-focus-inverse)}
+.wrap{max-width:1200px;margin:0 auto;padding:0 var(--gutter)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:16px;padding-bottom:16px}
+header img{width:160px;height:auto;display:block}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 24px;border-radius:var(--radius-sm);font:600 16px/1.25 Inter,sans-serif;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:background-color .15s}
+.btn-primary{background:var(--color-action);color:var(--color-action-text)}
+.btn-primary:hover{background:var(--color-action-hover)}.btn-primary:active{background:var(--color-action-active)}
+.btn-brass{background:var(--color-action-alt);color:var(--color-action-alt-text)}
+.btn-brass:hover{background:var(--color-action-alt-hover)}
+.btn[aria-busy=true]{cursor:progress}
+h1,h2{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;color:var(--color-text-heading);margin:0 0 16px}
+h1{font-weight:700;font-size:52px;line-height:54px}
+h2{font-weight:600;font-size:36px;line-height:40px}
+h3{font:600 22px/28px 'Barlow Condensed',sans-serif;color:var(--color-text-heading);margin:0 0 8px}
+p{margin:0 0 12px}
+section{padding-bottom:var(--space-section)}
+.kicker{font:600 14px/18px 'Barlow Condensed',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--color-accent-text);margin:0 0 12px}
+.lead{font-size:18px;line-height:28px;max-width:58ch}
+.support{color:var(--color-text-muted);font-size:14px;line-height:20px;margin-top:12px}
+.intro{max-width:62ch}
+/* hero */
+.hero{display:grid;grid-template-columns:7fr 5fr;gap:48px;align-items:center;padding-top:56px}
+.demo{background:var(--color-surface);border:1px solid var(--color-line);border-radius:var(--radius-md);padding:24px}
+.demo ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.demo li{border:1px solid var(--color-line);border-radius:var(--radius-sm);padding:8px 12px;font-size:15px}
+.demo li b{display:block;font-size:13px;color:var(--color-text-muted);font-weight:600}
+.demo .stem{width:3px;height:24px;background:var(--color-action-alt);margin:8px auto}
+.demo .next{background:var(--color-inverse-bg);color:var(--color-inverse-text);border-radius:var(--radius-sm);padding:12px 16px}
+.demo .next b{display:block;color:var(--color-sheen);font-size:13px;font-weight:600}
+.demo .tag{color:var(--color-text-muted);font-size:13px;margin:12px 0 0;text-align:right}
+/* cards */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gutter);margin-top:24px}
+.card{background:var(--color-surface);border:1px solid var(--color-line);border-radius:var(--radius-md);padding:24px}
+.card p:last-child{margin:0}
+/* signature */
+.sig{display:flex;flex-wrap:wrap;gap:8px 24px;list-style:none;padding:0;margin:24px 0;font:600 20px/24px 'Barlow Condensed',sans-serif;letter-spacing:.14em}
+.sig li{color:var(--color-text-muted)}
+.sig li[aria-current]{color:var(--color-text-heading);border-bottom:3px solid var(--color-action-alt);padding-bottom:4px}
+/* steps */
+.steps{counter-reset:s;list-style:none;padding:0;margin:24px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gutter)}
+.steps li{counter-increment:s;padding-top:56px;position:relative}
+.steps li::before{content:counter(s);position:absolute;top:0;left:0;width:40px;height:40px;border-radius:50%;background:var(--color-action);color:var(--color-action-text);font:700 20px/40px 'Barlow Condensed',sans-serif;text-align:center}
+/* scope */
+.scope{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--color-surface);border:1px solid var(--color-line);border-radius:var(--radius-md);margin-top:24px}
+.scope>div{padding:24px}.scope>div+div{border-left:1px solid var(--color-line)}
+.scope ul{margin:0;padding-left:20px}.scope li{margin-bottom:8px}
+/* proof */
+.proof{border-left:4px solid var(--color-action-alt);background:var(--color-surface);border-radius:0 var(--radius-md) var(--radius-md) 0;padding:24px;margin-top:24px}
+.proof ul{margin:0;padding-left:20px}.proof li{margin-bottom:8px}
+/* faq */
+.faq{margin-top:24px;border-top:1px solid var(--color-line);max-width:820px}
+.faq h3{margin:0}
+.faq button{all:unset;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;gap:16px;width:100%;min-height:56px;padding:12px 0;cursor:pointer;font:600 20px/26px 'Barlow Condensed',sans-serif;color:var(--color-text-heading)}
+.faq button:focus-visible{outline:3px solid var(--color-focus);outline-offset:2px}
+.faq button svg{flex:none;transition:transform .15s}
+.faq button[aria-expanded=true] svg{transform:rotate(180deg)}
+.faq .item{border-bottom:1px solid var(--color-line)}
+.faq .panel{padding:0 0 16px}
+.faq .panel[hidden]{display:none}
+/* inverse CTA */
+.inverse{background:var(--color-inverse-bg);color:var(--color-inverse-text);padding:64px 48px;border-radius:var(--radius-md)}
+.inverse h2{color:var(--color-inverse-text)}
+.inverse .wrap-in{max-width:62ch}
+/* form */
+.book{display:grid;grid-template-columns:5fr 7fr;gap:48px;align-items:start}
+.embed{background:var(--color-surface);border:1px solid var(--color-line);border-radius:var(--radius-md);padding:16px;display:flex;flex-direction:column;gap:16px}
+.embed iframe{display:block;width:100%;height:700px;border:0}
+.embed-ph{color:var(--color-text-muted);margin:0}
+form{background:var(--color-surface);border:1px solid var(--color-line);border-radius:var(--radius-md);padding:24px}
+label{display:block;font-weight:600;margin:20px 0 4px}
+label:first-of-type{margin-top:0}
+.req{font-weight:400;color:var(--color-text-muted)}
+.hint{display:block;font-size:14px;line-height:20px;color:var(--color-text-muted);margin:0 0 6px}
+input,textarea{width:100%;min-height:48px;border:1px solid var(--color-input-border);border-radius:var(--radius-sm);padding:10px 12px;font:16px/1.5 Inter,sans-serif;color:var(--color-text);background:var(--color-surface)}
+textarea{min-height:112px;resize:vertical}
+input:hover,textarea:hover{border-color:var(--color-text)}
+input:focus-visible,textarea:focus-visible{outline:3px solid var(--color-focus);outline-offset:0}
+[aria-invalid=true]{border:2px solid var(--color-error)}
+.err{color:var(--color-error);font-size:14px;line-height:20px;display:flex;gap:6px;align-items:flex-start;margin:6px 0 0}
+.err[hidden]{display:none}
+.summary{border:2px solid var(--color-error);background:var(--color-error-bg);border-radius:var(--radius-sm);padding:16px;margin-bottom:20px}
+.summary h3{font:600 16px/24px Inter,sans-serif;color:var(--color-error);margin:0 0 4px}
+.summary a{color:var(--color-error)}
+.summary ul{margin:0;padding-left:20px}
+.done{border:2px solid var(--color-action);background:var(--color-success-bg);border-radius:var(--radius-sm);padding:16px}
+.done h3{font:600 18px/24px Inter,sans-serif;margin:0 0 4px}
+.done p{margin:0}
+form .btn{margin-top:24px}
+.privacy{font-size:14px;line-height:20px;color:var(--color-text-muted);margin:12px 0 0}
+footer{border-top:1px solid var(--color-line)}
+footer .wrap{padding-top:24px;padding-bottom:32px;color:var(--color-text-muted);font-size:14px}
+footer .sigline{font:600 14px/18px 'Barlow Condensed',sans-serif;letter-spacing:.14em;color:var(--color-text-heading);margin-bottom:8px}
+@media (max-width:899px){
+  .hero,.book{grid-template-columns:1fr;gap:32px}
+  .cards,.steps{grid-template-columns:1fr}
+  .steps li{padding:0 0 0 56px;min-height:40px}
+}
+@media (max-width:639px){
+  .embed .btn{width:100%}
+  .embed iframe{height:900px}
+  .embed{padding:8px}
+  :root{--space-section:64px;--gutter:16px}
+  header img{width:140px}
+  header .btn{padding:0 16px;font-size:15px}
+  .hero{padding-top:32px}
+  h1{font-size:38px;line-height:40px}h2{font-size:28px;line-height:32px}
+  .hero .btn,form .btn,.inverse .btn{width:100%}
+  .scope{grid-template-columns:1fr}.scope>div+div{border-left:0;border-top:1px solid var(--color-line)}
+  .inverse{padding:40px 20px;margin:0 -4px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header><div class="wrap">
+  <a href="../"><img src="../assets/bridgerow-logo.png" alt="Bridgerow home" width="760" height="233"></a>
+  <a class="btn btn-primary" href="#book" data-claim="CL-O01">Book a free call</a>
+</div></header>
+
+<main id="main" class="wrap">
+
+<!-- 1 HERO: same audience, offer and CTA as ad Concept 1 -->
+<section class="hero" aria-labelledby="h-hero">
+  <div>
+    <p class="kicker">For businesses whose inquiries arrive in more than one place</p>
+    <h1 id="h-hero">Where did your last inquiry wait?</h1>
+    <p class="lead" data-claim="CL-O04 CL-P01">Calls, forms and messages land in different places. Talk us through where inquiries stall. We'll suggest a useful first change, starting with the tools you already use.</p>
+    <a class="btn btn-primary" href="#book" data-claim="CL-O01">Book a free assessment call</a>
+    <p class="support" data-claim="CL-O01">A short conversation about one recent example. No obligation.</p>
+  </div>
+  <figure class="demo" aria-labelledby="demo-cap" style="margin:0">
+    <ul>
+      <li><b>Voicemail</b>"Can you call me back?"</li>
+      <li><b>Web form</b>"Free next week?"</li>
+      <li><b>Message</b>"Still open?"</li>
+    </ul>
+    <div class="stem" aria-hidden="true"></div>
+    <div class="next"><b>Next step</b>Sam calls back Monday, 9 am</div>
+    <figcaption id="demo-cap" class="tag">Simulated example: three inquiries, one named next step</figcaption>
+  </figure>
+</section>
+
+<!-- 2 THE WORKFLOW PROBLEM -->
+<section aria-labelledby="h-problem">
+  <h2 id="h-problem">Sound familiar?</h2>
+  <div class="cards">
+    <div class="card"><h3>Inquiries land in different places</h3><p>A call, a form and a message each wait until someone happens to see them.</p></div>
+    <div class="card"><h3>Nobody clearly owns the reply</h3><p>Follow-up depends on who's in that day.</p></div>
+    <div class="card"><h3>Quotes go out and go quiet</h3><p>No one checks back, so the conversation just stops.</p></div>
+  </div>
+</section>
+
+<!-- 3 HOW GET FOUND · CONVERT · AUTOMATE RELATES -->
+<section aria-labelledby="h-fit">
+  <h2 id="h-fit">Where this fits in what we do</h2>
+  <ul class="sig" aria-label="Bridgerow services">
+    <li>GET FOUND</li><li aria-current="true">CONVERT</li><li>AUTOMATE</li>
+  </ul>
+  <div class="intro">
+    <p>Getting found brings the inquiry in. Converting it means someone owns the next step. Automating the routine parts helps that happen the same way each time.</p>
+    <p data-claim="CL-B02 CL-P07">This page is about the middle step. We set up a way for each inquiry to reach a named person with a clear next step, and we start with whichever part is holding things up.</p>
+  </div>
+</section>
+
+<!-- 4 THE FIRST STEP: honest process -->
+<section aria-labelledby="h-call">
+  <h2 id="h-call">What happens on the call</h2>
+  <ol class="steps">
+    <li><h3>You walk us through one inquiry</h3><p>Pick a recent one. Tell us how it came in, who saw it and what happened next.</p></li>
+    <li><h3>We look at where it waited</h3><p>Together we find the point where it stalled and who could own that step.</p></li>
+    <li data-claim="CL-P01 CL-P07"><h3>We suggest one first change</h3><p>One small, useful change. If the tools you already pay for can do the job, we'll tell you. If nothing new is needed, we'll say so.</p></li>
+  </ol>
+  <p class="support" data-claim="CL-O01">The call is a conversation, not a full audit or a sales demo.</p>
+</section>
+
+<!-- 5 SCOPE AND EXPECTATIONS -->
+<section aria-labelledby="h-scope">
+  <h2 id="h-scope">If you decide to go ahead</h2>
+  <div class="scope">
+    <div>
+      <h3>What we do</h3>
+      <ul>
+        <li data-claim="CL-P05">Every project starts with an agreed scope and a written quote.</li>
+        <li data-claim="CL-P01">We set it up in the tools you already use where they can do the job.</li>
+        <li data-claim="CL-P06">We test it with sample data, including what happens when something goes wrong, before it goes live.</li>
+        <li data-claim="CL-P08">You get access, a written guide and a walkthrough at handover.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>What it isn't</h3>
+      <ul>
+        <li data-claim="CL-B01">A guarantee of more customers or sales.</li>
+        <li data-claim="CL-P01">A new platform by default.</li>
+        <li data-claim="CL-O01">A full audit or build on the free call.</li>
+        <li data-claim="CL-P09">A replacement for your people. A person handles anything the workflow can't.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 6 THE EVIDENCE WE ACTUALLY HAVE -->
+<section aria-labelledby="h-proof">
+  <h2 id="h-proof">What you can hold us to</h2>
+  <div class="proof">
+    <ul>
+      <li data-claim="CL-P01">If a feature you already pay for does the job, we'll tell you.</li>
+      <li data-claim="CL-P04">Agreed in writing before we start. Changes are approved by you first.</li>
+      <li data-claim="CL-P02">Automations we set up include a human check where it matters and a written way to pause or switch them off.</li>
+      <li data-claim="CL-P03">The accounts and settings we set up for you are in your name, and you get written handover notes.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 7 OBJECTIONS -->
+<section aria-labelledby="h-faq">
+  <h2 id="h-faq">Questions owners ask</h2>
+  <div class="faq">
+    <div class="item"><h3><button aria-expanded="true" aria-controls="q1" id="q1b">Do I need new software?<svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 8l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></h3>
+      <div class="panel" id="q1" role="region" aria-labelledby="q1b"><p data-claim="CL-P01">Not necessarily. We check what you already have first, and we'll tell you if it can do the job.</p></div></div>
+    <div class="item"><h3><button aria-expanded="true" aria-controls="q2" id="q2b">Is the free call a sales pitch?<svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 8l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></h3>
+      <div class="panel" id="q2" role="region" aria-labelledby="q2b"><p data-claim="CL-O01 CL-P01">It's a working conversation about one real example. If nothing new is needed, we'll say so.</p></div></div>
+    <div class="item"><h3><button aria-expanded="true" aria-controls="q3" id="q3b">What does it cost?<svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 8l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></h3>
+      <div class="panel" id="q3" role="region" aria-labelledby="q3b"><p data-claim="CL-O01 CL-O02">The call is free. Any work after that has a written quote before it starts.</p></div></div>
+    <div class="item"><h3><button aria-expanded="true" aria-controls="q4" id="q4b">What happens after the call?<svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 8l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></h3>
+      <div class="panel" id="q4" role="region" aria-labelledby="q4b"><p data-claim="CL-O02 CL-P04">If a change makes sense, you can ask for a written quote. Nothing starts until the scope is agreed in writing.</p></div></div>
+    <div class="item"><h3><button aria-expanded="true" aria-controls="q5" id="q5b">What if my team won't use it?<svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 8l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></h3>
+      <div class="panel" id="q5" role="region" aria-labelledby="q5b"><p data-claim="CL-P01 CL-P08">We start from how they already work, and you get a written guide and a walkthrough at handover.</p></div></div>
+    <div class="item"><h3><button aria-expanded="true" aria-controls="q6" id="q6b">Is this only for trades?<svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 8l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></h3>
+      <div class="panel" id="q6" role="region" aria-labelledby="q6b"><p data-claim="CL-F01">No. It's for any small or medium-sized business whose inquiries arrive in more than one place.</p></div></div>
+  </div>
+</section>
+
+<!-- 8 FINAL CTA -->
+<section aria-labelledby="h-cta">
+  <div class="inverse">
+    <div class="wrap-in">
+      <h2 id="h-cta">Start with one recent inquiry</h2>
+      <p>Walk us through it. We'll show where it waited and suggest one first change, or tell you nothing new is needed.</p>
+      <a class="btn btn-brass" href="#book" data-claim="CL-O01">Book a free assessment call</a>
+    </div>
+  </div>
+</section>
+
+<!-- 9 BOOKING: the booking tool's own embed (LP-2 decision). No form on this page. -->
+<section aria-labelledby="h-book" id="book">
+  <div class="book">
+    <div>
+      <h2 id="h-book">Book a free assessment call</h2>
+      <p>Pick a time that suits you.</p>
+      <p class="support">If the calendar doesn't load, <a href="https://calendar.app.google/hMxABM2wr15FdUxU9" style="color:var(--color-action)">open the booking page</a>.</p>
+    </div>
+    <div class="embed" role="region" aria-label="Booking calendar">
+      <!-- Google Calendar appointment schedule embed (code supplied by Elia, 2026-10-08). Google's own form, privacy notice and confirmation apply. -->
+      <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3xQRDtdCbVVIs_qWKSCKObJtLJlzrx4uA6ORnGPIUTTxmBiXPMPLLMOvdNogfg_1kgzTXYVUyl?gv=true" title="Book a free assessment call with Bridgerow" loading="lazy"></iframe>
+      <a class="btn btn-primary" href="https://calendar.app.google/hMxABM2wr15FdUxU9" data-claim="CL-O01">Open the booking page</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">
+  <p class="sigline">GET FOUND · CONVERT · AUTOMATE</p>
+  <p>Bridgerow helps small and medium-sized businesses get found, turn inquiries into customers, and automate everyday work.</p>
+  <p>© 2026 Bridgerow · <a href="../" style="color:inherit">bridgerow.ca</a></p>
+</div></footer>
+
+<script>
+// Accordion: all panels open without JS; JS collapses all but the first.
+document.querySelectorAll('.faq button').forEach((b,i)=>{
+  const p=document.getElementById(b.getAttribute('aria-controls'));
+  if(i>0){b.setAttribute('aria-expanded','false');p.hidden=true}
+  b.addEventListener('click',()=>{const o=b.getAttribute('aria-expanded')==='true';b.setAttribute('aria-expanded',String(!o));p.hidden=o});
+});
+</script>
+</body>
+</html>
