@@ -1,0 +1,131 @@
+{
+  "name": "bridgerow-ops-dashboard",
+  "version": "0.5.0",
+  "description": "Read-only Bridgerow operations dashboard: agent activity, projects, website, social media, content pipeline, offers and usage, with sources and freshness.",
+  "author": {
+    "name": "Elia Molinari"
+  },
+  "types": "./types/index.d.ts",
+  "userConfig": {
+    "driveServer": {
+      "type": "string",
+      "title": "Google Drive connector",
+      "description": "The MCP server name of the Google Drive connector, as /mcp lists it.",
+      "default": "claude.ai Google Drive"
+    },
+    "workAccount": {
+      "type": "string",
+      "title": "Work Drive account",
+      "description": "Only Drive items owned by this account are read; anything else is refused.",
+      "default": "info@gustogrp.com"
+    },
+    "bridgerowFolderId": {
+      "type": "string",
+      "title": "Bridgerow folder ID",
+      "description": "Canonical Work Drive ID of ELIA OS/PROJECTS/Bridgerow (CURRENT_STATE and DECISIONS are read from it).",
+      "default": ""
+    },
+    "paliosFolderId": {
+      "type": "string",
+      "title": "Palios folder ID",
+      "description": "Work Drive ID of the folder holding Palios records. Empty means not configured.",
+      "default": ""
+    },
+    "paliosDocTitles": {
+      "type": "string",
+      "title": "Palios documents",
+      "description": "Comma-separated titles of the documents to read in the Palios folder.",
+      "default": "CURRENT_STATE,DECISIONS"
+    },
+    "danceAlchemyFolderId": {
+      "type": "string",
+      "title": "Dance Alchemy folder ID",
+      "description": "Work Drive ID of the folder holding Dance Alchemy records. Empty means not configured.",
+      "default": ""
+    },
+    "danceAlchemyDocTitles": {
+      "type": "string",
+      "title": "Dance Alchemy documents",
+      "description": "Comma-separated titles of the documents to read in the Dance Alchemy folder.",
+      "default": "CURRENT_STATE,DECISIONS"
+    },
+    "approvedSharedIds": {
+      "type": "string",
+      "title": "Approved shared Drive IDs",
+      "description": "Comma-separated IDs of files or folders owned by another account that may be read when found in a configured folder. Anything else not owned by the Work account is shown as NOT APPROVED and not read.",
+      "default": ""
+    },
+    "contentFolderId": {
+      "type": "string",
+      "title": "Content folder ID",
+      "description": "Work Drive ID of ELIA OS/PROJECTS/Bridgerow/Content. Day folders are read from Publishing/YYYY/MM/YYYY-MM-DD inside it. Empty means not configured.",
+      "default": ""
+    },
+    "contentCalendarDocId": {
+      "type": "string",
+      "title": "Content calendar document ID",
+      "description": "Work Drive ID of the current content calendar. Empty means not configured.",
+      "default": ""
+    },
+    "contentCalendarStartDate": {
+      "type": "string",
+      "title": "Content calendar start date",
+      "description": "YYYY-MM-DD of the calendar's Day 1, used to find today's ideas. Empty means today's ideas are shown as unknown.",
+      "default": ""
+    },
+    "socialAccounts": {
+      "type": "string",
+      "title": "Social accounts",
+      "description": "Comma-separated platform=handle pairs, for example instagram=@bridgerow_solutions,tiktok=@name. Shown next to each platform as set here; they are not verified with the platform.",
+      "default": ""
+    },
+    "websiteRepo": {
+      "type": "string",
+      "title": "Website repository",
+      "description": "owner/repo of the Bridgerow website on GitHub.",
+      "default": "eliamoli/repository-1"
+    },
+    "websiteBranch": {
+      "type": "string",
+      "title": "Website branch",
+      "description": "Branch the website is built from.",
+      "default": "bridgerow-website"
+    },
+    "websiteUrl": {
+      "type": "string",
+      "title": "Public website URL",
+      "description": "The site's public https address. When set, each refresh checks it once (status, response time, page title). Empty means not checked.",
+      "default": "https://bridgerow.ca/"
+    },
+    "posthogProjectId": {
+      "type": "string",
+      "title": "PostHog project ID",
+      "description": "The PostHog project whose web analytics are shown (aggregates only: visitors, pageviews, top pages, traffic sources). Read through the PostHog connector with read-only queries; the connector's active project must be this one. Empty means not configured.",
+      "default": "657204"
+    },
+    "posthogServer": {
+      "type": "string",
+      "title": "PostHog connector name",
+      "description": "Name of the PostHog MCP server in Claude Code.",
+      "default": "claude.ai PostHog"
+    },
+    "zernioServer": {
+      "type": "string",
+      "title": "Zernio connector name",
+      "description": "Name of the Zernio MCP server in Claude Code, as /mcp lists it. Followers, views and engagement are read from it with three read-only tools (accounts_list, accounts_get_follower_stats, analytics_get_analytics); nothing is posted, scheduled or changed. Empty means not configured.",
+      "default": "plugin:zernio:zernio"
+    },
+    "contentEngineDir": {
+      "type": "string",
+      "title": "Content engine folder (optional)",
+      "description": "Local path of the ai-content-engine checkout, read with git log only. Empty means not configured.",
+      "default": ""
+    },
+    "staleDays": {
+      "type": "number",
+      "title": "Days before a record is stale",
+      "description": "An ELIA OS document not updated for this many days is flagged STALE.",
+      "default": 7
+    }
+  }
+}
